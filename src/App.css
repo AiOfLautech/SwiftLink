@@ -1,0 +1,110 @@
+.gradient-bg {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+  padding: 2rem;
+}
+
+.glass-container {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo-glow {
+  display: inline-block;
+  padding: 20px;
+  border-radius: 50%;
+  animation: glow 2s infinite alternate;
+}
+
+.logo-spin {
+  font-size: 3rem;
+  color: #fff;
+  animation: spin 5s linear infinite;
+}
+
+.neon-text {
+  color: #fff;
+  text-shadow: 0 0 10px #fff,
+               0 0 20px #fff,
+               0 0 30px #e60073,
+               0 0 40px #e60073;
+}
+
+.glowing-input {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white !important;
+  transition: all 0.3s ease;
+}
+
+.glowing-input:focus {
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.gradient-btn {
+  background: linear-gradient(45deg, #6366f1, #a855f7);
+  border: none;
+  padding: 12px 30px;
+  transition: transform 0.3s ease;
+}
+
+.gradient-btn:hover {
+  transform: translateY(-2px);
+}
+
+.spin {
+  animation: spin 1s linear infinite;
+}
+
+.result-box {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  border-radius: 10px;
+  color: white;
+}
+
+.shortened-url {
+  color: #a855f7 !important;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.quote-text {
+  color: rgba(255, 255, 255, 0.8);
+  font-style: italic;
+  font-size: 1.1rem;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes glow {
+  from { box-shadow: 0 0 10px #fff, 0 0 20px #e60073; }
+  to { box-shadow: 0 0 20px #fff, 0 0 30px #e60073; }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.shake {
+  animation: shake 0.5s;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-10px); }
+  75% { transform: translateX(10px); }
+}
