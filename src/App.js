@@ -12,15 +12,27 @@ function App() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!url) return setError('Please enter a valid URL');
+    if (!url) {
+      setError('Please enter a valid URL');
+      return;
+    }
     
+    // Clear previous result and error on new submission
+    setShortened(null);
+    setError('');
     setLoading(true);
+    
     try {
       const response = await axios.get(
         `https://apis.davidcyriltech.my.id/tinyurl?url=${encodeURIComponent(url)}`
       );
-      setShortened(response.data);
-      setError('');
+      
+      // Validate response data structure
+      if (response.data && response.data.shortened_url) {
+        setShortened(response.data);
+      } else {
+        setError('Unexpected response from the server.');
+      }
     } catch (err) {
       setError('Failed to shorten URL. Please try again.');
     }
@@ -28,7 +40,9 @@ function App() {
   };
 
   const copyToClipboard = () => {
-    navigator.clipboard.writeText(shortened?.shortened_url);
+    if(shortened && shortened.shortened_url) {
+      navigator.clipboard.writeText(shortened.shortened_url);
+    }
   };
 
   return (
